@@ -41,17 +41,26 @@ window.addEventListener("keydown", function (evt) {
 var mapLink = document.querySelector(".contacts-button-map");
 
 var mapPopup = document.querySelector(".modal-map");
-var mapClose = mapPopup.querySelector(".modal-close");
 
-mapLink.addEventListener("click", function (evt) {
+
+if (mapPopup) {
+  var mapClose = mapPopup.querySelector(".modal-close");
+}
+
+if (mapLink) {
+  mapLink.addEventListener("click", function (evt) {
   evt.preventDefault();
   mapPopup.classList.add("modal-show");
 });
+}
 
-mapClose.addEventListener("click", function (evt) {
+if (mapLink) {
+  mapClose.addEventListener("click", function (evt) {
   evt.preventDefault();
   mapPopup.classList.remove("modal-show");
 });
+}
+
 
 window.addEventListener("keydown", function (evt) {
   if (evt.keyCode === 27) {
